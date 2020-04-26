@@ -66,6 +66,9 @@ class OneLogin_Saml2_Authn_Request(object):
             if display_name:
                 provider_name_str = "\n" + '    ProviderName="%s"' % organization_data[lang]['displayname']
 
+        # force this to be blank
+        provider_name_str = ''
+
         force_authn_str = ''
         if force_authn is True:
             force_authn_str = "\n" + '    ForceAuthn="true"'
@@ -88,10 +91,7 @@ class OneLogin_Saml2_Authn_Request(object):
             if security['wantNameIdEncrypted']:
                 name_id_policy_format = OneLogin_Saml2_Constants.NAMEID_ENCRYPTED
 
-            nameid_policy_str = """
-    <samlp:NameIDPolicy
-        Format="%s"
-        AllowCreate="true" />""" % name_id_policy_format
+            nameid_policy_str = """<samlp:NameIDPolicy Format="%s" />""" % name_id_policy_format
 
         requested_authn_context_str = ''
         if security['requestedAuthnContext'] is not False:
