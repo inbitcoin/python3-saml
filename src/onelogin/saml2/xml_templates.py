@@ -90,7 +90,7 @@ class OneLogin_Saml2_Templates(object):
 %(sls)s        <md:NameIDFormat>%(name_id_format)s</md:NameIDFormat>
         <md:AssertionConsumerService Binding="%(binding)s"
                                      Location="%(location)s"
-                                     index="0" />
+                                     index="0" isDefault=true />
 %(attribute_consuming_service)s    </md:SPSSODescriptor>
 %(organization)s
 %(contacts)s
