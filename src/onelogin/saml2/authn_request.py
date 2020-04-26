@@ -109,7 +109,10 @@ class OneLogin_Saml2_Authn_Request(object):
 
         attr_consuming_service_str = ''
         if 'attributeConsumingService' in sp_data and sp_data['attributeConsumingService']:
-            attr_consuming_service_str = "\n    AttributeConsumingServiceIndex=\"1\""
+            attr_consuming_service_str = "\n    AttributeConsumingServiceIndex=\"0\""
+
+        # patch issuer
+        entity_id = "<saml:Issuer Format='urn:oasis:names:tc:SAML:2.0:nameid-format:entity' NameQualifier='%s'>%s</saml:Issuer>" % (sp_data['entityId'], sp_data['entityId'])
 
         request = OneLogin_Saml2_Templates.AUTHN_REQUEST % \
             {
@@ -120,7 +123,7 @@ class OneLogin_Saml2_Authn_Request(object):
                 'issue_instant': issue_instant,
                 'destination': destination,
                 'assertion_url': sp_data['assertionConsumerService']['url'],
-                'entity_id': sp_data['entityId'],
+                'entity_id': entity_id,
                 'subject_str': subject_str,
                 'nameid_policy_str': nameid_policy_str,
                 'requested_authn_context_str': requested_authn_context_str,

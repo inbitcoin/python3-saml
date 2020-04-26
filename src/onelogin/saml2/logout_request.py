@@ -105,13 +105,14 @@ class OneLogin_Saml2_Logout_Request(object):
                 session_index_str = '<samlp:SessionIndex>%s</samlp:SessionIndex>' % session_index
             else:
                 session_index_str = ''
-
+            # add entity id to logout
+            entity_id = "<saml:Issuer Format='urn:oasis:names:tc:SAML:2.0:nameid-format:entity' NameQualifier='%s'>%s</saml:Issuer>" % (sp_data['entityId'], sp_data['entityId'])
             logout_request = OneLogin_Saml2_Templates.LOGOUT_REQUEST % \
                 {
                     'id': uid,
                     'issue_instant': issue_instant,
                     'single_logout_url': idp_data['singleLogoutService']['url'],
-                    'entity_id': sp_data['entityId'],
+                    'entity_id': entity_id,
                     'name_id': name_id_obj,
                     'session_index': session_index_str,
                 }

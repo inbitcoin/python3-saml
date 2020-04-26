@@ -20,31 +20,31 @@ class OneLogin_Saml2_Templates(object):
         </saml:Attribute>"""
 
     AUTHN_REQUEST = """\
-<samlp:AuthnRequest
-  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
-  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
-  ID="%(id)s"
-  Version="2.0"%(provider_name)s%(force_authn_str)s%(is_passive_str)s
-  IssueInstant="%(issue_instant)s"
-  Destination="%(destination)s"
-  ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-  AssertionConsumerServiceURL="%(assertion_url)s"%(attr_consuming_service_str)s>
-    <saml:Issuer>%(entity_id)s</saml:Issuer>%(subject_str)s%(nameid_policy_str)s
-%(requested_authn_context_str)s
-</samlp:AuthnRequest>"""
+    <samlp:AuthnRequest
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="%(id)s"
+      Version="2.0"%(provider_name)s%(force_authn_str)s%(is_passive_str)s
+      IssueInstant="%(issue_instant)s"
+      Destination="%(destination)s"
+      ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      AssertionConsumerServiceURL="%(assertion_url)s"%(attr_consuming_service_str)s>
+        %(entity_id)s %(nameid_policy_str)s
+    %(requested_authn_context_str)s
+    </samlp:AuthnRequest>"""
 
     LOGOUT_REQUEST = """\
-<samlp:LogoutRequest
-  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
-  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
-  ID="%(id)s"
-  Version="2.0"
-  IssueInstant="%(issue_instant)s"
-  Destination="%(single_logout_url)s">
-    <saml:Issuer>%(entity_id)s</saml:Issuer>
-    %(name_id)s
-    %(session_index)s
-</samlp:LogoutRequest>"""
+        <samlp:LogoutRequest
+          xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+          xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+          ID="%(id)s"
+          Version="2.0"
+          IssueInstant="%(issue_instant)s"
+          Destination="%(single_logout_url)s">
+            %(entity_id)s
+            %(name_id)s
+            %(session_index)s
+        </samlp:LogoutRequest>"""
 
     LOGOUT_RESPONSE = """\
 <samlp:LogoutResponse
