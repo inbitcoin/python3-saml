@@ -75,7 +75,7 @@ class OneLogin_Saml2_Templates(object):
             <md:RequestedAttribute Name="%(req_attr_name)s"%(req_attr_nameformat_str)s%(req_attr_isrequired_str)s%(req_attr_aux_str)s"""
 
     MD_ATTR_CONSUMER_SERVICE = """\
-        <md:AttributeConsumingService index="1">
+        <md:AttributeConsumingService index="0">
             <md:ServiceName xml:lang="en">%(service_name)s</md:ServiceName>
 %(attr_cs_desc)s%(requested_attribute_str)s
         </md:AttributeConsumingService>\n"""
