@@ -63,7 +63,7 @@ class OneLogin_Saml2_Templates(object):
 
     MD_CONTACT_PERSON = """\
     <md:ContactPerson contactType="%(type)s">
-        <md:Extensions type="md:ContactPersonExtensionType">
+        <md:Extensions>
             <spid:VATNumber>%(vat_number)s</spid:VATNumber>
             <spid:Private/>
         </md:Extensions>
@@ -85,7 +85,7 @@ class OneLogin_Saml2_Templates(object):
 
     MD_ENTITY_DESCRIPTOR = """\
 <?xml version="1.0"?>
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:spid="https://spid.gov.it/saml-extensions" 
                      %(valid)s
                      %(cache)s
                      entityID="%(entity_id)s">
