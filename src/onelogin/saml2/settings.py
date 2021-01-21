@@ -475,12 +475,12 @@ class OneLogin_Saml2_Settings(object):
                         errors.append('contact_type_invalid')
                         break
 
-                for c_type in settings['contactPerson']:
-                    contact = settings['contactPerson'][c_type]
-                    if ('givenName' not in contact or len(contact['givenName']) == 0) or \
-                            ('emailAddress' not in contact or len(contact['emailAddress']) == 0):
-                        errors.append('contact_not_enought_data')
-                        break
+                # for c_type in settings['contactPerson']:
+                    # contact = settings['contactPerson'][c_type]
+                    # if ('givenName' not in contact or len(contact['givenName']) == 0) or \
+                            # ('emailAddress' not in contact or len(contact['emailAddress']) == 0):
+                        # errors.append('contact_not_enought_data')
+                        # break
 
             if 'organization' in settings:
                 for org in settings['organization']:
