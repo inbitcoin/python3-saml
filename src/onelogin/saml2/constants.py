@@ -46,6 +46,7 @@ class OneLogin_Saml2_Constants(object):
     NS_XSI = 'http://www.w3.org/2001/XMLSchema-instance'
     NS_XENC = 'http://www.w3.org/2001/04/xmlenc#'
     NS_DS = 'http://www.w3.org/2000/09/xmldsig#'
+    NS_SPID = 'https://spid.gov.it/saml-extensions"'
 
     # Namespace Prefixes
     NS_PREFIX_SAML = 'saml'
@@ -56,6 +57,7 @@ class OneLogin_Saml2_Constants(object):
     NS_PREFIX_XSD = 'xsd'
     NS_PREFIX_XENC = 'xenc'
     NS_PREFIX_DS = 'ds'
+    NS_PREFIX_SPID = 'spid'
 
     # Prefix:Namespace Mappings
     NSMAP = {
@@ -63,7 +65,8 @@ class OneLogin_Saml2_Constants(object):
         NS_PREFIX_SAML: NS_SAML,
         NS_PREFIX_DS: NS_DS,
         NS_PREFIX_XENC: NS_XENC,
-        NS_PREFIX_MD: NS_MD
+        NS_PREFIX_MD: NS_MD,
+        NS_PREFIX_SPID: NS_SPID
     }
 
     # Bindings
