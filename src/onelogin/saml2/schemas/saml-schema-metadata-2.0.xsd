@@ -6,11 +6,12 @@
     xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
     xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
     xmlns:spid="https://spid.gov.it/saml-extensions"
+    xmlns:fpa="https://spid.gov.it/invoicing-extensions"
     xmlns="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="unqualified"
     attributeFormDefault="unqualified"
     blockDefault="substitution"
-    version="2.0">
+    version="3.0">
     <import namespace="http://www.w3.org/2000/09/xmldsig#"
         schemaLocation="xmldsig-core-schema.xsd"/>
     <import namespace="http://www.w3.org/2001/04/xmlenc#"
@@ -21,9 +22,17 @@
         schemaLocation="http://www.w3.org/2001/xml.xsd"/>
     <import namespace="https://spid.gov.it/saml-extensions"
         schemaLocation="spid.xsd"/>
+    <import namespace="https://spid.gov.it/invoicing-extensions"
+        schemaLocation="spid-invoicing.xsd"/>
     <annotation>
         <documentation>
-            Document identifier: saml-schema-metadata-aggregated-spid
+            Document identifier: saml-schema-metadata-sp-spid-av29.xsd
+            Location: https://github.com/italia/spid-saml-check/tree/master/specs-compliance-tests/xsd/
+            Revision history:
+                V3.0 (19/11/2020):
+                    Compliance SPID Avviso n.29 - Versione 3.
+                V2.0 (22/10/2020):
+                    Schema for SPID SAML metadata for Service Provider.
         </documentation>
     </annotation>
 
@@ -56,17 +65,14 @@
     </complexType>
     <complexType name="ContactPersonExtensionType">
         <sequence>
-            <element ref="spid:VATNumber" minOccurs="0"/>
             <element ref="spid:IPACode" minOccurs="0"/>
+            <element ref="spid:VATNumber" minOccurs="0"/>
             <element ref="spid:FiscalCode" minOccurs="0"/>
             <choice minOccurs="0" maxOccurs="1">
-                <element ref="spid:PublicServicesFullAggregator"/>
-                <element ref="spid:PublicServicesLightAggregator"/>
-                <element ref="spid:PrivateServicesFullAggregator"/>
-                <element ref="spid:PrivateServicesLightAggregator"/>
-                <element ref="spid:PublicServicesFullOperator"/>
-                <element ref="spid:PublicServicesLightOperator"/>
+                <element ref="spid:Public"/>
+                <element ref="spid:Private"/>
             </choice>
+            <element ref="fpa:CessionarioCommittente" minOccurs="0" maxOccurs="1"/>
         </sequence>
     </complexType>
 
@@ -112,12 +118,11 @@
             <element ref="md:Extensions" minOccurs="0"/>
             <choice>
                 <choice maxOccurs="unbounded">
-                    <element ref="md:RoleDescriptor"/>
                     <element ref="md:SPSSODescriptor"/>
                 </choice>
             </choice>
             <element ref="md:Organization" minOccurs="1" maxOccurs="1"/>
-            <element ref="md:ContactPerson" minOccurs="2" maxOccurs="3"/>
+            <element ref="md:ContactPerson" minOccurs="1" maxOccurs="2"/>
         </sequence>
         <attribute name="entityID" type="md:entityIDType" use="required"/>
         <attribute name="validUntil" type="dateTime" use="optional"/>
@@ -143,12 +148,11 @@
     <complexType name="ContactType">
         <sequence>
             <element ref="md:Extensions" minOccurs="1" maxOccurs="1"/>
-            <element ref="md:Company" minOccurs="1" maxOccurs="1"/>
-            <element ref="md:EmailAddress" minOccurs="0" maxOccurs="1"/>
+            <element ref="md:Company" minOccurs="0" maxOccurs="1"/>
+            <element ref="md:EmailAddress" minOccurs="1" maxOccurs="1"/>
             <element ref="md:TelephoneNumber" minOccurs="0" maxOccurs="1"/>
         </sequence>
         <attribute name="contactType" type="md:ContactTypeType" use="required"/>
-        <attribute ref="spid:entityType" use="required" />
         <anyAttribute namespace="##other" processContents="lax"/>
     </complexType>
     <element name="Company" type="string"/>
