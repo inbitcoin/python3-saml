@@ -46,7 +46,7 @@ class OneLogin_Saml2_Constants(object):
     NS_XSI = 'http://www.w3.org/2001/XMLSchema-instance'
     NS_XENC = 'http://www.w3.org/2001/04/xmlenc#'
     NS_DS = 'http://www.w3.org/2000/09/xmldsig#'
-    NS_SPID = 'https://spid.gov.it/saml-extensions"'
+    NS_SPID = 'https://spid.gov.it/saml-extensions'
 
     # Namespace Prefixes
     NS_PREFIX_SAML = 'saml'
