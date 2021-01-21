@@ -63,7 +63,10 @@ class OneLogin_Saml2_Templates(object):
 
     MD_CONTACT_PERSON = """\
     <md:ContactPerson contactType="%(type)s">
-        <md:Extensions></md:Extensions>
+        <md:Extensions>
+            <spid:VATNumber>%(vat_number)s</spid:VATNumber>
+            <spid:Private/>
+        </md:Extensions>
         <md:EmailAddress>%(email)s</md:EmailAddress>
     </md:ContactPerson>"""
 

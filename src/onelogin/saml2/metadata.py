@@ -113,6 +113,7 @@ class OneLogin_Saml2_Metadata(object):
                 contact = OneLogin_Saml2_Templates.MD_CONTACT_PERSON % \
                     {
                         'type': ctype,
+                        'vat_number': info['vatNumber'],
                         'email': info['emailAddress'],
                     }
                 contacts_info.append(contact)
