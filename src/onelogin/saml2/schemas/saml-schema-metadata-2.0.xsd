@@ -18,6 +18,8 @@
         schemaLocation="saml-schema-assertion-2.0.xsd"/>
     <import namespace="http://www.w3.org/XML/1998/namespace"
         schemaLocation="xml.xsd"/>
+    <import namespace="https://www.spid.gov.it/saml-extensions"
+        schemaLocation="spid.xsd"/>
     <annotation>
         <documentation>
             Document identifier: saml-schema-metadata-2.0
