@@ -117,6 +117,8 @@ class OneLogin_Saml2_Metadata(object):
                         'email': info['emailAddress'],
                     }
                 contacts_info.append(contact)
+            # add also billing metadata
+            contacts_info.append(OneLogin_Saml2_Templates.MD_BILLING)
             str_contacts = '\n'.join(contacts_info)
 
         str_attribute_consuming_service = ''

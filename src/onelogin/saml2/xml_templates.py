@@ -70,6 +70,33 @@ class OneLogin_Saml2_Templates(object):
         <md:EmailAddress>%(email)s</md:EmailAddress>
     </md:ContactPerson>"""
 
+    MD_BILLING = """\
+    <md:ContactPerson contactType="billing">
+        <md:Extensions xmlns:fpa="https://spid.gov.it/invoicing-extensions">
+            <fpa:CessionarioCommittente>
+                <fpa:DatiAnagrafici>
+                    <fpa:IdFiscaleIVA>
+                        <fpa:IdPaese>IT</fpa:IdPaese>
+                        <fpa:IdCodice>02468135791</fpa:IdCodice>
+                    </fpa:IdFiscaleIVA>
+                    <fpa:Anagrafica>
+                        <fpa:Denominazione>
+                            Bmanity Srl
+                        </fpa:Denominazione>
+                    </fpa:Anagrafica>
+                </fpa:DatiAnagrafici>
+                <fpa:Sede>
+                    <fpa:Indirizzo>via Rialto</fpa:Indirizzo>
+                    <fpa:NumeroCivico>16</fpa:NumeroCivico>
+                    <fpa:CAP>38068</ fpa:CAP>
+                    <fpa:Comune>Rovereto</fpa:Comune>
+                    <fpa:Provincia>TN</fpa:Provincia>
+                    <fpa:Nazione>IT</fpa:Nazione>
+                </fpa:Sede>
+            </fpa:CessionarioCommittente>
+        </md:Extensions>
+    </md:ContactPerson>"""
+
     MD_SLS = """\
         <md:SingleLogoutService Binding="%(binding)s"
                                 Location="%(location)s" />\n"""
