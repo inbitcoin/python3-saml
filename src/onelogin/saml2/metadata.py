@@ -249,8 +249,6 @@ class OneLogin_Saml2_Metadata(object):
         if cert is None or cert == '':
             return metadata
 
-        print(metadata)
-
         try:
             root = OneLogin_Saml2_XML.to_etree(metadata)
         except Exception as e:
