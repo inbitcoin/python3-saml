@@ -88,7 +88,7 @@ class OneLogin_Saml2_Templates(object):
                 <fpa:Sede>
                     <fpa:Indirizzo>via Rialto</fpa:Indirizzo>
                     <fpa:NumeroCivico>16</fpa:NumeroCivico>
-                    <fpa:CAP>38068</ fpa:CAP>
+                    <fpa:CAP>38068</fpa:CAP>
                     <fpa:Comune>Rovereto</fpa:Comune>
                     <fpa:Provincia>TN</fpa:Provincia>
                     <fpa:Nazione>IT</fpa:Nazione>
