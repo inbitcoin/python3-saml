@@ -190,7 +190,6 @@ class OneLogin_Saml2_Metadata(object):
                 'contacts': str_contacts,
                 'attribute_consuming_service': str_attribute_consuming_service
             }
-        print(metadata)
         return metadata
 
     @staticmethod
