@@ -77,7 +77,7 @@ class OneLogin_Saml2_Templates(object):
                 <fpa:DatiAnagrafici>
                     <fpa:IdFiscaleIVA>
                         <fpa:IdPaese>IT</fpa:IdPaese>
-                        <fpa:IdCodice>02468135791</fpa:IdCodice>
+                        <fpa:IdCodice>02485160226</fpa:IdCodice>
                     </fpa:IdFiscaleIVA>
                     <fpa:Anagrafica>
                         <fpa:Denominazione>
