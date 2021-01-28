@@ -82,10 +82,13 @@ class OneLogin_Saml2_XML(object):
         :returns: Error code or the DomDocument of the xml
         :rtype: xml.dom.minidom.Document
         """
-
+        from datetime import datetime
+        now = datetime.now()
         assert isinstance(schema, compat.str_type)
+        print("Start")
         try:
             xml = OneLogin_Saml2_XML.to_etree(xml)
+            print("To tree %s" % (datetime.now() - now))
         except Exception as e:
             if debug:
                 print(e)
@@ -93,14 +96,17 @@ class OneLogin_Saml2_XML(object):
 
         schema_file = join(dirname(__file__), 'schemas', schema)
         with open(schema_file, 'r') as f_schema:
+            print("Schema opened %s" % (datetime.now() - now))
             xmlschema = OneLogin_Saml2_XML._schema_class(etree.parse(f_schema))
-
+            print("Schema parsed %s" % (datetime.now() - now))
+        print("Start final validation %s" % (datetime.now() - now))
         if not xmlschema.validate(xml):
             if debug:
                 print('Errors validating the metadata: ')
                 for error in xmlschema.error_log:
                     print(error.message)
             return 'invalid_xml'
+        print("Finish %s" % (datetime.now() - now))
         return xml
 
     @staticmethod
