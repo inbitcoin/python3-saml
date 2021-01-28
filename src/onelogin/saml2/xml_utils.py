@@ -97,8 +97,10 @@ class OneLogin_Saml2_XML(object):
         schema_file = join(dirname(__file__), 'schemas', schema)
         with open(schema_file, 'r') as f_schema:
             print("Schema opened %s" % (datetime.now() - now))
-            xmlschema = OneLogin_Saml2_XML._schema_class(etree.parse(f_schema))
+            etree_parsed = etree.parse(f_schema)
             print("Schema parsed %s" % (datetime.now() - now))
+            xmlschema = OneLogin_Saml2_XML._schema_class(etree_parsed)
+            print("Schema validation %s" % (datetime.now() - now))
         print("Start final validation %s" % (datetime.now() - now))
         if not xmlschema.validate(xml):
             if debug:
