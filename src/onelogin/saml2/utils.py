@@ -390,7 +390,7 @@ class OneLogin_Saml2_Utils(object):
         :return: A unique string
         :rtype: string
         """
-        return 'ONELOGIN_%s' % sha1(compat.to_bytes(uuid4().hex)).hexdigest()
+        return 'BMANITY_%s' % sha1(compat.to_bytes(uuid4().hex)).hexdigest()
 
     @staticmethod
     def parse_time_to_SAML(time):
