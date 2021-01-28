@@ -80,9 +80,7 @@ class OneLogin_Saml2_Templates(object):
                         <fpa:IdCodice>02485160226</fpa:IdCodice>
                     </fpa:IdFiscaleIVA>
                     <fpa:Anagrafica>
-                        <fpa:Denominazione>
-                            Bmanity Srl
-                        </fpa:Denominazione>
+                        <fpa:Denominazione>Bmanity Srl</fpa:Denominazione>
                     </fpa:Anagrafica>
                 </fpa:DatiAnagrafici>
                 <fpa:Sede>
@@ -95,6 +93,8 @@ class OneLogin_Saml2_Templates(object):
                 </fpa:Sede>
             </fpa:CessionarioCommittente>
         </md:Extensions>
+        <md:Company>Bmanity Srl</md:Company>
+        <md:EmailAddress>office@bmanity.it</md:EmailAddress>
     </md:ContactPerson>"""
 
     MD_SLS = """\

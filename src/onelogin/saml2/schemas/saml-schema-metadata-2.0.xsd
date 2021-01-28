@@ -149,7 +149,7 @@
         <sequence>
             <element ref="md:Extensions" minOccurs="1" maxOccurs="1"/>
             <element ref="md:Company" minOccurs="0" maxOccurs="1"/>
-            <element ref="md:EmailAddress" minOccurs="0" maxOccurs="1"/>
+            <element ref="md:EmailAddress" minOccurs="1" maxOccurs="1"/>
             <element ref="md:TelephoneNumber" minOccurs="0" maxOccurs="1"/>
         </sequence>
         <attribute name="contactType" type="md:ContactTypeType" use="required"/>
