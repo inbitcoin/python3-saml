@@ -52,7 +52,7 @@ class OneLogin_Saml2_Logout_Response(object):
         issuer_nodes = self.__query('/samlp:LogoutResponse/saml:Issuer')
         if len(issuer_nodes) == 1:
             issuer = OneLogin_Saml2_XML.element_text(issuer_nodes[0])
-        return issuer
+        return issuer.strip()
 
     def get_status(self):
         """
