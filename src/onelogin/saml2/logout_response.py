@@ -52,11 +52,10 @@ class OneLogin_Saml2_Logout_Response(object):
         issuer_nodes = self.__query('/samlp:LogoutResponse/saml:Issuer')
         if len(issuer_nodes) == 1:
             issuer = OneLogin_Saml2_XML.element_text(issuer_nodes[0])
-        print("primna: %s" % issuer)
         try:
-            print("strip: %s" % issuer.strip())
+            issuer = issuer.strip()
         except Exception as e:
-            print("Errore %s" % e)
+            print("Errore strip issuer %s" % e)
         return issuer
 
     def get_status(self):
